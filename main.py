@@ -1,7 +1,7 @@
 from colored import Fore, Back, Style
 from classes.carpark import Carpark
 from functions.carpark_functions import add_slot, list_slots, delete_slot, park_car
-from functions.file_functions import save_and_exit
+from functions.file_functions import save_and_exit, load_from_file
 
 print(f"{Fore.yellow}{Back.red}Welcome to the Carpark Application!!!{Style.reset}\n")
 
@@ -23,6 +23,7 @@ user_choice = ""
 #after initial setup of classes, create instance of the carpark, 
 # next we need to create an instance of a parking slot to add parking slot to the carpark
 carpark = Carpark("Carparker")
+load_from_file(carpark)
 
 while user_choice != "7":
     user_choice = create_menu()

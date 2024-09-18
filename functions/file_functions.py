@@ -22,17 +22,20 @@ def save_and_exit(carpark):
         json.dump(json_to_write, json_file, indent=4)
     
 def load_from_file(carpark):
-    with open("data/carpark.json", "r") as json_file:
-        json_to_load = json.load(json_file)
+    try:
+        with open("data/carpark.json", "r") as json_file:
+            json_to_load = json.load(json_file)
 
     # print(json_to_load)
 
-    for slot in json_to_load:
-        if slot.get("car"):
-            car = Car(slot["Car"]["registration_number"])
-            slot = ParkingSlot(slot["slot_id"])
-            slot.add_car(car)
-        else:
-            slot = ParkingSlot(slot["slot_id"])
+        for slot in json_to_load:
+            if slot.get("car"):
+                car = Car(slot["car"]["registration_number"])
+                slot = ParkingSlot(slot["slot_id"])
+                slot.add_car(car)
+            else:
+                slot = ParkingSlot(slot["slot_id"])
 
-        carpark.add_slot(slot)
+            carpark.add_slot(slot)
+    except FileNotFoundError:
+        print("The file does not exist")

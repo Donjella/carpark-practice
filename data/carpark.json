@@ -1,8 +1,11 @@
 [
     {
-        "slot_id": "ps5"
+        "slot_id": "PS1",
+        "car": {
+            "registration_number": "R2"
+        }
     },
     {
-        "slot_id": "PS4"
+        "slot_id": "PS2"
     }
 ]

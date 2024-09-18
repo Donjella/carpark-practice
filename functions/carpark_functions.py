@@ -23,3 +23,13 @@ def list_slots(carpark):
     for slothaha in all_slots:
         print(slothaha)
     print("\n")
+
+def delete_slot(carpark):
+    # take input the id of the parking slot
+    slot_id = input("Enter the id of the parking slot: ")
+    # delete the parking slot
+    if carpark.delete_slot(slot_id):
+        print("Parking slot deleted\n")
+    else:
+        print("No parking slot with that id\n")
+    

@@ -1,4 +1,5 @@
 from classes.parking_slot import ParkingSlot
+from classes.car import Car
 
 #(carpark) to know which carpark the parking slot is added into
 def add_slot(carpark):
@@ -33,3 +34,22 @@ def delete_slot(carpark):
     else:
         print("No parking slot with that id\n")
     
+def park_car(carpark):
+    print("Parking a car")
+    # take input the rego of the car
+    reg_no = input("Enter the registration number of the car: ")
+    # take id of slot you want to park
+    slot_id = input("Enter the id of the parking slot: ")
+    # find the parking slot to make sure it exist to park
+    slot_to_park = carpark.find_slot(slot_id)
+    # if it exists:
+    if slot_to_park:
+        car_to_park = Car(reg_no)
+    # add car to parking slot
+        if (slot_to_park.add_car(car_to_park)):
+            print("Car parked successfully\n")
+    # to add the car, we need to create instance of the car with rego
+        else:
+            print("Car already parked in slot\n")
+    else:
+        print("Slot with that id does not exist\n")

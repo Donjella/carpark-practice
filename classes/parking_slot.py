@@ -3,6 +3,14 @@ class ParkingSlot:
         self.id = id
         self.car = None
 
+    def add_car(self, car):
+        if self.car:
+            return False
+        else:
+            self.car = car
+            return car
+
+
     def __str__(self):
         #  if self.car: - means if self.car is present, i.e. a car is present or self.car != none
         if self.car:

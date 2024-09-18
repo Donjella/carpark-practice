@@ -1,6 +1,7 @@
 from colored import Fore, Back, Style
 from classes.carpark import Carpark
 from functions.carpark_functions import add_slot, list_slots, delete_slot, park_car
+from functions.file_functions import save_and_exit
 
 print(f"{Fore.yellow}{Back.red}Welcome to the Carpark Application!!!{Style.reset}\n")
 
@@ -39,6 +40,7 @@ while user_choice != "7":
     elif user_choice =="6":
         print("Remove Car")
     elif user_choice =="7":
+        save_and_exit(carpark)
         print("Exiting")
     else:
         print("Invalid Input")
